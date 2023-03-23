@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: service-department
+
+cqrs:
+  read: ${READ_ENABLED:true}
+  write: ${WRITE_ENABLED:true}
+
+management:
+  endpoints:
+    enabled-by-defaults: false
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      enabled: true
+      show-details: ALWAYS
