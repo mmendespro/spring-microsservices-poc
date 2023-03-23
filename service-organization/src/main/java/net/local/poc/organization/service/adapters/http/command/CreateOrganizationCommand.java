@@ -13,7 +13,7 @@ public class CreateOrganizationCommand extends SelfValidating<CreateOrganization
     @NotBlank
     private final String organizationName;
 
-    public CreateOrganizationCommand(@NotBlank String organizationId, @NotBlank String organizationName) {
+    public CreateOrganizationCommand(String organizationId, String organizationName) {
         this.organizationId = organizationId;
         this.organizationName = organizationName;
         validateSelf(this);
