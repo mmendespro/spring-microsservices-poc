@@ -4,7 +4,12 @@ server:
 spring:
   application:
     name: service-organization
-
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    baseUrl: http://openzipkin:9411
+    
 cqrs:
   read: ${READ_ENABLED:true}
   write: ${WRITE_ENABLED:true}
