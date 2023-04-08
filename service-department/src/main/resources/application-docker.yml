@@ -9,7 +9,12 @@ spring:
       probability: 1.0
   zipkin:
     baseUrl: http://openzipkin:9411
-    
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service-jvm:8888/eureka/
+
 cqrs:
   read: ${READ_ENABLED:true}
   write: ${WRITE_ENABLED:true}
