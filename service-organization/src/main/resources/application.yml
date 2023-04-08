@@ -9,6 +9,10 @@ cqrs:
   read: ${READ_ENABLED:true}
   write: ${WRITE_ENABLED:true}
 
+services:
+  employee_url: http://localhost:8080/v1/employees 
+  department_url: http://localhost:8081/v1/departments 
+
 management:
   endpoints:
     enabled-by-defaults: false

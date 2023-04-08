@@ -1,16 +1,17 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   application:
-    name: service-department
+    name: service-organization
 
 cqrs:
   read: ${READ_ENABLED:true}
   write: ${WRITE_ENABLED:true}
 
 services:
-  employee_url: http://localhost:8080/v1/employees 
+  employee_url: http://service-employee-jvm:8080/v1/employees 
+  department_url: http://service-department-jvm:8080/v1/departments 
 
 management:
   endpoints:

@@ -10,7 +10,7 @@ WORKDIR /opt/app
 # cp target/*.jar /opt/app/app.jar
 COPY ${JAR_FILE} app.jar
 
-# ENV EMPLOYEE_SERVICE="http://service-employee-jvm:8080/v1/employees"
+ENV SPRING_PROFILES_ACTIVE=docker
 
 # java -jar /opt/app/app.jar
 ENTRYPOINT ["java","-jar","app.jar"]

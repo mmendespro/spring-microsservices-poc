@@ -2,6 +2,7 @@ package net.local.poc.department.service.adapters.http.client;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -12,11 +13,13 @@ import reactor.core.publisher.Flux;
 @Component
 public class EmployeeClient implements LoadDepartmentEmployeesPort {
 
+    @Value(value = "${services.employee_url}")
+    private String CLIENT_URL;
+
     private final WebClient webClient;
-    private final String BASE_URL="http://service-employee-jvm:8080/v1/employees";
 
     public EmployeeClient(WebClient.Builder webClientBuilder) {
-		this.webClient = webClientBuilder.baseUrl(BASE_URL).build();
+		this.webClient = webClientBuilder.baseUrl(CLIENT_URL).build();
 	}
 
     @Override
