@@ -1,21 +1,16 @@
 #!/bin/bash
 
-if [ ! "$(docker network ls | grep poc-net)" ]; then
-  echo "Creating poc-net network ..."
-  docker network create poc-net
-else
-  echo "poc-net network exists."
-fi
-
-# build the app
-mvn clean package
 # stop container
-docker stop service-organization-jvm
+docker stop service-organization
+
 # remove container
-docker rm service-organization-jvm
+docker rm service-organization
+
 # remove container image
-docker rmi poc/service-organization-jvm:latest
-# build container image
-docker build -f Dockerfile.jvm -t poc/service-organization-jvm .
-# run container
-docker run -id --network=poc-net --name service-organization-jvm -p 8082:8082 poc/service-organization-jvm
+docker rmi poc/service-organization:latest
+
+# build app and docker image
+mvn clean install
+
+# run docker image with no export port cause they are accessible by geteway-service
+docker run -id --network=localnet --name service-organization poc/service-organization
