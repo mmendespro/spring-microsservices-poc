@@ -1,0 +1,15 @@
+version: '3.6'
+
+networks:
+  localnet:
+    name: localnet
+    driver: bridge
+
+services:
+
+  openzipkin:
+    image: openzipkin/zipkin
+    container_name: openzipkin
+    restart: always
+    ports:
+      - 9411:9411

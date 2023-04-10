@@ -15,6 +15,10 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8888/eureka/
 
+springdoc:
+  swagger-ui:
+    path: '/swagger-ui.html'
+
 cqrs:
   read: ${READ_ENABLED:true}
   write: ${WRITE_ENABLED:true}
