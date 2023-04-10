@@ -70,7 +70,8 @@ services:
   openzipkin:
     image: openzipkin/zipkin
     container_name: openzipkin
-    restart: always
+    hostname: openzipkin
+    restart: unless-stopped
     ports:
       - 9411:9411
     networks:
