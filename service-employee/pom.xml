@@ -49,16 +49,24 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-		<!-- Log and Trace -->
+        <!-- Spring Cloud Sleuth -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
 		
+        <!-- Zipkin trace -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
 		</dependency>
+
+        <!-- Logback encoder for Logstash -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>7.3</version>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
