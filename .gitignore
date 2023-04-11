@@ -8,6 +8,7 @@ bin/
 *.war
 *.ear
 
+docs/vols/*
 
 # Eclipse
 .settings/

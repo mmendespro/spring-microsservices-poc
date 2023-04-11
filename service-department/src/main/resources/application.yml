@@ -14,11 +14,6 @@ springdoc:
   swagger-ui:
     path: '/swagger-ui.html'
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8888/eureka/
-
 cqrs:
   read: ${READ_ENABLED:true}
   write: ${WRITE_ENABLED:true}

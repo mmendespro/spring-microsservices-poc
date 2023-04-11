@@ -1,27 +1,25 @@
 server:
-  port: 8080
+  port: 8082
 
 spring:
   application:
     name: service-organization
+  config:
+    activate:
+      on-profile: docker
   sleuth:
     sampler:
       probability: 1.0
   zipkin:
     baseUrl: http://openzipkin:9411
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://discovery-service-jvm:8888/eureka/
     
 cqrs:
   read: ${READ_ENABLED:true}
   write: ${WRITE_ENABLED:true}
 
 services:
-  employee_url: http://service-employee-jvm:8080/v1/employees 
-  department_url: http://service-department-jvm:8080/v1/departments 
+  employee_url: http://service-employee:8080/v1/employees 
+  department_url: http://service-department:8081/v1/departments 
 
 management:
   endpoints:
