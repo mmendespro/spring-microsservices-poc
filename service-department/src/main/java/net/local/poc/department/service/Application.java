@@ -3,6 +3,9 @@ package net.local.poc.department.service;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import net.local.poc.library.annotations.EnableCqrsLibrary;
+
+@EnableCqrsLibrary
 @SpringBootApplication
 public class Application {
 

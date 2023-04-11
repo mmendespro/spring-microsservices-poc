@@ -30,7 +30,8 @@ services:
       - "25826:25826"
       - "5044:5044"
     volumes:
-      - $PWD/etc/logstash/pipeline:/usr/share/logstash/pipeline:ro                # Pipeline configuration
+      # Pipeline configuration
+      - $PWD/etc/logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     restart: on-failure
