@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.local.poc.employee.service.adapters.http.queries.ListAllEmployeeQuery;
 import net.local.poc.employee.service.adapters.http.queries.ListByDepartmentQuery;
 import net.local.poc.employee.service.adapters.http.queries.ListByOrganizationQuery;
 import net.local.poc.employee.service.adapters.http.queries.dto.EmployeeResponse;
@@ -26,6 +27,13 @@ public class EmployeeReadController {
 
     public EmployeeReadController(ServiceBus serviceBus) {
         this.serviceBus = serviceBus;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<EmployeeResponse>> listAll() {
+        var query = new ListAllEmployeeQuery();
+        serviceBus.execute(query);
+        return ResponseEntity.ok(query.getResult());
     }
 
     @GetMapping(path = "/department/{departmentId}")

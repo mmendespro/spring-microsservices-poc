@@ -7,6 +7,7 @@ import net.local.poc.employee.service.application.domain.Employee;
 
 public interface LoadEmployeePort {
     Optional<Employee> load(String employeeId);
+    List<Employee> loadAll();
     List<Employee> loadByDepartment(String departmentId);
     List<Employee> loadByOrganization(String organizationId);
 }

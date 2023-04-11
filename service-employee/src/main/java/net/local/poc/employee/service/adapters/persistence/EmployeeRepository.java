@@ -24,6 +24,11 @@ public class EmployeeRepository implements LoadEmployeePort, SaveEmployeePort, D
     }
 
     @Override
+    public List<Employee> loadAll() {
+        return inMemoryDB.values().stream().collect(Collectors.toList());
+    }
+
+    @Override
     public List<Employee> loadByDepartment(String departmentId) {
         return inMemoryDB.values().stream()
                                   .filter(emp -> departmentId.equals(emp.getDepartmentId()))
