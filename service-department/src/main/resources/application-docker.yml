@@ -15,7 +15,7 @@ cqrs:
   write: ${WRITE_ENABLED:true}
 
 services:
-  employee_url: http://service-employee-jvm:8080/v1/employees 
+  employee_url: http://service-employee:8080/v1/employees 
 
 management:
   endpoints:
