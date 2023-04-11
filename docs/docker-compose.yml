@@ -12,6 +12,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
     ports:
       - "9200:9200"
+    restart: on-failure
     environment:
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
