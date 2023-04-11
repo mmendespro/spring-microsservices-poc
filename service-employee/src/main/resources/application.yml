@@ -1,9 +1,7 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 spring:
-  application:
-    name: service-employee
   sleuth:
     sampler:
       probability: 1.0

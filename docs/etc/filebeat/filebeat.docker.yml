@@ -22,4 +22,4 @@ filebeat.autodiscover:
 output.logstash:
   hosts: "logstash:5044"
 
-logging.metrics.enabled: true
+logging.metrics.enabled: false

@@ -1,26 +1,5 @@
-server:
-  port: 8080
-
 spring:
-  application:
-    name: service-employee
-  sleuth:
-    sampler:
-      probability: 1.0
+  main:
+    banner-mode: "off"
   zipkin:
     baseUrl: http://openzipkin:9411
-
-cqrs:
-  read: ${READ_ENABLED:true}
-  write: ${WRITE_ENABLED:true}
-
-management:
-  endpoints:
-    enabled-by-defaults: false
-    web:
-      exposure:
-        include: health
-  endpoint:
-    health:
-      enabled: true
-      show-details: ALWAYS
