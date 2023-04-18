@@ -1,5 +1,10 @@
 version: "3.5"
 
+networks:
+  localnet:
+    name: localnet
+    driver: bridge
+
 services:
 
   elasticsearch:
@@ -11,6 +16,8 @@ services:
       - "discovery.type=single-node"
     volumes:
       - $PWD/vols/elasticsearch_data:/usr/share/elasticsearch/data:rw              # Persistence data
+    networks:
+      - localnet
 
   logstash:
     image: docker.elastic.co/logstash/logstash:7.2.0
@@ -23,6 +30,8 @@ services:
     restart: on-failure
     depends_on:
       - elasticsearch
+    networks:
+      - localnet
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:7.2.0
@@ -36,6 +45,8 @@ services:
     restart: on-failure
     depends_on:
       - logstash
+    networks:
+      - localnet
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.2.0
@@ -45,6 +56,8 @@ services:
     restart: on-failure
     depends_on:
       - elasticsearch
+    networks:
+      - localnet
 
   openzipkin:
     image: openzipkin/zipkin
@@ -53,3 +66,5 @@ services:
     restart: unless-stopped
     ports:
       - 9411:9411
+    networks:
+      - localnet

@@ -1,5 +1,10 @@
 version: "3.5"
 
+networks:
+  localnet:
+    name: localnet
+    driver: bridge
+
 services:
 
   service-organization:
@@ -10,6 +15,8 @@ services:
     labels:
       collect_logs_with_filebeat: "true"
       decode_log_event_to_json_object: "true"
+    networks:
+      - localnet
 
   service-department:
     image: poc/service-department:latest
@@ -19,6 +26,8 @@ services:
     labels:
       collect_logs_with_filebeat: "true"
       decode_log_event_to_json_object: "true"
+    networks:
+      - localnet
 
   service-employee:
     image: poc/service-employee:latest
@@ -28,3 +37,5 @@ services:
     labels:
       collect_logs_with_filebeat: "true"
       decode_log_event_to_json_object: "true"
+    networks:
+      - localnet
