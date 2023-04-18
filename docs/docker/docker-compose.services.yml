@@ -1,0 +1,30 @@
+version: "3.5"
+
+services:
+
+  service-organization:
+    image: poc/service-organization:latest
+    container_name: service-organization
+    ports:
+      - "8082:8082"
+    labels:
+      collect_logs_with_filebeat: "true"
+      decode_log_event_to_json_object: "true"
+
+  service-department:
+    image: poc/service-department:latest
+    container_name: service-department
+    ports:
+      - "8081:8081"
+    labels:
+      collect_logs_with_filebeat: "true"
+      decode_log_event_to_json_object: "true"
+
+  service-employee:
+    image: poc/service-employee:latest
+    container_name: service-employee
+    ports:
+      - "8080:8080"
+    labels:
+      collect_logs_with_filebeat: "true"
+      decode_log_event_to_json_object: "true"

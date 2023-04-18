@@ -8,7 +8,7 @@ bin/
 *.war
 *.ear
 
-docs/vols/*
+docs/docker/vols/*
 
 # Eclipse
 .settings/
