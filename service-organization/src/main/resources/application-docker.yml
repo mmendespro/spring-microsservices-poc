@@ -1,33 +1,9 @@
-server:
-  port: 8082
-
 spring:
-  application:
-    name: service-organization
-  config:
-    activate:
-      on-profile: docker
-  sleuth:
-    sampler:
-      probability: 1.0
+  main:
+    banner-mode: "off"
   zipkin:
     baseUrl: http://openzipkin:9411
-    
-cqrs:
-  read: ${READ_ENABLED:true}
-  write: ${WRITE_ENABLED:true}
 
 services:
-  employee_url: http://service-employee:8080/v1/employees 
-  department_url: http://service-department:8081/v1/departments 
-
-management:
-  endpoints:
-    enabled-by-defaults: false
-    web:
-      exposure:
-        include: health
-  endpoint:
-    health:
-      enabled: true
-      show-details: ALWAYS
+  employee_url: http://service-employee:8080/v1/employees
+  department_url: http://service-employee:8081/v1/departments

@@ -1,9 +1,7 @@
 server:
-  port: 8082
+  port: ${PORT:8082}
 
 spring:
-  application:
-    name: service-organization
   sleuth:
     sampler:
       probability: 1.0
@@ -19,8 +17,8 @@ cqrs:
   write: ${WRITE_ENABLED:true}
 
 services:
-  employee_url: http://localhost:8080/v1/employees 
-  department_url: http://localhost:8081/v1/departments 
+  employee_url: http://localhost:8080/v1/employees
+  department_url: http://localhost:8081/v1/departments
 
 management:
   endpoints:
