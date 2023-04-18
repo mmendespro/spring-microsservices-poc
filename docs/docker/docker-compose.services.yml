@@ -24,6 +24,7 @@ services:
     ports:
       - "8081:8081"
     labels:
+      # Atraves das labels o filebeat vai coletar os logs e mandar para o logstash
       collect_logs_with_filebeat: "true"
       decode_log_event_to_json_object: "true"
     networks:
