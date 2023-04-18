@@ -13,4 +13,4 @@ docker rmi poc/service-employee:latest
 mvn clean install
 
 # run docker image with no export port cause they are accessible by geteway-service
-docker run -id --network=localnet --name service-employee -p 8080:8080 poc/service-employee
+#docker run -id --network=localnet --name service-employee -p 8080:8080 poc/service-employee
