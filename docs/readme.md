@@ -1,1 +1,6 @@
-![screenshot.png](./imgs/screenshot.png)
+![screenshot.png](./misc/img/screenshots/00.png)
+![screenshot.png](./misc/img/screenshots/01.png)
+![screenshot.png](./misc/img/screenshots/02.png)
+![screenshot.png](./misc/img/screenshots/03.png)
+![screenshot.png](./misc/img/screenshots/04.png)
+![screenshot.png](./misc/img/screenshots/05.png)
