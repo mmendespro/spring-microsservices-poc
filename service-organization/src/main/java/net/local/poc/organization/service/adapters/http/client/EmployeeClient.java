@@ -2,33 +2,16 @@ package net.local.poc.organization.service.adapters.http.client;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import net.local.poc.organization.service.application.domain.dto.EmployeeDTO;
-import net.local.poc.organization.service.application.ports.outgoing.LoadEmployeePort;
-import reactor.core.publisher.Flux;
 
-@Component
-public class EmployeeClient implements LoadEmployeePort {
+@FeignClient(name = "service-employee", url = "${services.employee_url}")
+public interface EmployeeClient  {
 
-    @Value(value = "${services.employee_url}")
-    private String CLIENT_URL;
-
-    private final WebClient webClient;
-
-    public EmployeeClient(WebClient.Builder webClientBuilder) {
-		this.webClient = webClientBuilder.baseUrl(CLIENT_URL).build();
-	}
-
-    @Override
-    public List<EmployeeDTO> load(String organizationId) {
-        Flux<EmployeeDTO> response = webClient.get()
-                                              .uri("/organization/".concat(organizationId))
-                                              .retrieve()
-                                              .bodyToFlux(EmployeeDTO.class);
-        return response.collectList().block();
-    }
-    
+    @GetMapping( "/department/{departmentId}")
+    ResponseEntity<List<EmployeeDTO>> findByDepartment(@PathVariable String departmentId);
 }
