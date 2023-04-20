@@ -20,6 +20,7 @@ public class LoadEmployees implements LoadEmployeePort {
 
     @Override
     public List<EmployeeDTO> load(String organizationId) {
+        log.info("Loading employees from organization {}", organizationId);
         return client.findByDepartment(organizationId).getBody();
     }
 }

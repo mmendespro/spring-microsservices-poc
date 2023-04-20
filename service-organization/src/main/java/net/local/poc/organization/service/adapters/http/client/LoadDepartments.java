@@ -20,6 +20,7 @@ public class LoadDepartments implements LoadDepartmentPort {
 
     @Override
     public List<DepartmentDTO> load(String organizationId) {
+        log.info("Loading departments from organization {}", organizationId);
         return client.findByOrganization(organizationId).getBody();
     }
     
